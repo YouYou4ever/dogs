@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dog Park</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>klaaaaaaab</h1>
+    <div class="controls">
+      <input id="search" type="text" placeholder="Search by name or breed..." />
+      <select id="filter">
+        <option value="all">All</option>
+        <option value="puppy">Puppy</option>
+        <option value="adult">Adult</option>
+      </select>
+      <button id="shuffle">Shuffle</button>
+      <button id="BUY" class="BUY-btn">BUY</button>
+    </div>
+  </header>
+
+  <main class="gallery" id="gallery"></main>
+
+  <template id="card-template">
+    <article class="card" draggable="true">
+      <div class="image-wrap">
+        <img class="dog-img" alt="Happy dog" />
+        <span class="price-tag"></span>
+        <button class="like-btn" aria-label="Like">♡</button>
+        <button class="sound-btn" aria-label="Bark">🔊</button>
+      </div>
+      <div class="meta">
+        <h2 class="name"></h2>
+        <p class="breed"></p>
+        <div class="tags"></div>
+      </div>
+    </article>
+  </template>
+
+  <footer class="footer">
+    <p>sil vo plis ne donner pas le makla a les chien</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>

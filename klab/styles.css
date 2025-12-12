@@ -1,0 +1,129 @@
+:root {
+  --bg: #0f1217;
+  --panel: #171b22;
+  --text: #e6edf3;
+  --muted: #9aa4ad;
+  --accent: #4aa3ff;
+  --like: #ff5a8f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  background: var(--panel);
+  border-bottom: 1px solid #222832;
+  padding: 12px 16px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  z-index: 10;
+}
+.topbar h1 { margin: 0; font-size: 20px; }
+.controls { display: flex; gap: 8px; flex: 1; }
+.controls input, .controls select, .controls button {
+  background: #0c0f14;
+  color: var(--text);
+  border: 1px solid #222832;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+.controls input { flex: 1; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid #222832;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.card:focus-within, .card:active { box-shadow: 0 0 0 2px var(--accent) inset; }
+.card.dragging { opacity: 0.6; transform: scale(0.98); }
+
+.image-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+.dog-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 200ms ease, filter 150ms ease;
+}
+.card:hover .dog-img { transform: scale(1.03); filter: brightness(1.05); } /* “pet” effect */
+.card.zoom .dog-img { transform: scale(1.2); }
+
+.like-btn, .sound-btn {
+  position: absolute;
+  top: 10px;
+  background: rgba(0,0,0,0.45);
+  color: var(--text);
+  border: none;
+  border-radius: 999px;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease;
+}
+.like-btn { right: 10px; }
+.sound-btn { right: 50px; }
+.like-btn.active { background: var(--like); }
+.like-btn:hover, .sound-btn:hover { transform: scale(1.05); }
+
+.price-tag {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  border: 2px solid var(--accent);
+}
+
+.meta { padding: 12px; }
+.meta .name { margin: 0 0 4px; font-size: 16px; }
+.meta .breed { margin: 0 0 8px; color: var(--muted); font-size: 13px; }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tags .tag {
+  background: #0c0f14;
+  border: 1px solid #222832;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.footer {
+  padding: 16px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid #222832;
+  }
+.BUY-btn {
+  margin-top: 12px;
+  background: var(--like);
+  color: #09d813;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
